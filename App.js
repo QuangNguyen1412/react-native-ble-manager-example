@@ -167,7 +167,6 @@ export default class App extends Component {
   handleDiscoverPeripheral(peripheral) {
     var peripherals = this.state.peripherals;
     if (!peripherals.has(peripheral.id)) {
-      // console.log('Got ble peripheral', peripheral);
       peripherals.set(peripheral.id, peripheral);
       this.setState({peripherals});
     }
@@ -203,10 +202,10 @@ export default class App extends Component {
               BleManager.retrieveServices(peripheral.id).then(
                 peripheralInfo => {
                   console.log(peripheralInfo);
-                  var service = '0000ffff-0000-1000-8000-00805f9b34fb';
+                  var service = 'FFFF';
                   var readAndNotiService =
-                    '0000ff02-0000-1000-8000-00805f9b34fb';
-                  var writeService = '0000ff01-0000-1000-8000-00805f9b34fb';
+                    'FF02';
+                  var writeService = 'FF01';
 
                   setTimeout(() => {
                     BleManager.startNotification(
